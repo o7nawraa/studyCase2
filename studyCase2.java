@@ -92,6 +92,7 @@ public static void menuList(){
 
     name++;
     System.out.println();
+    
 
         }
     }
