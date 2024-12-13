@@ -73,7 +73,7 @@ public static void menuList(){
             continue;
         }
          
-        System.out.print("Masukkan jumlah item untuk " + menu[choice - 1] + ": ");
+        System.out.print("Enter the number of items for " + menu[choice - 1] + ": ");
         int quantity = sc.nextInt();
         totalPrice += prices[choice - 1] * quantity;
 
@@ -86,7 +86,7 @@ public static void menuList(){
 
     name++;
     System.out.println();
-    
+
         }
     }
 
