@@ -33,6 +33,7 @@ public class studyCase2 {
 
             default:
                 System.out.println("Invalid Choice. Re-input The Number : ");
+                System.out.println();
             }
         }
     }   
@@ -42,13 +43,15 @@ public static void addOrder(){
     while (true) {
         System.out.print("Enter Cutomer Name: ");
         customerData[name][0] = sc.nextLine();
+
         System.out.print("Enter Table number: ");
         customerData[name][1] = sc.nextLine();
         System.out.println();
 
         menuList();  
-        name++;
-        return;
+
+
+        // name++;
     }
    
     
@@ -57,11 +60,12 @@ public static void addOrder(){
 
 public static void menuList(){
     Scanner sc = new Scanner(System.in);
-    System.out.println("\n=== MENU KAFE ===");
+    System.out.println("\n=== MENU CAFE ===");
     for (int i = 0; i<menu.length; i++){
         System.out.println((i+1) + ". " + menu[i] + " = " + prices[i]);
     }
- 
+    System.out.println();
+    
     int totalPrice = 0;
     while (true) {
     System.out.print("Choose Menu (Enter menu number, or 0 to exit): ");
@@ -85,9 +89,8 @@ public static void menuList(){
     }
     
     System.out.println("Order successfully added.");
-    System.out.println("Total Prices: Rp " + totalPrice);
+    System.out.println("Total Prices: Rp: " + totalPrice);
     
-    name++;
     System.out.println();
    
             } 
