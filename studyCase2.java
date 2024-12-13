@@ -37,21 +37,28 @@ public class studyCase2 {
         }
     }   
 
-
-
 public static void addOrder(){
-    Scanner sc = new Scanner(System.in);
-        System.out.print("\nEnter Cutomer Name: ");
-        System.out.print("Enter Cutomer Name: ");
-        customerData[name][0] = sc.nextLine();
-        System.out.print("Enter Table number: ");
-        System.out.print("Enter Table number: ");
-        customerData[name][1] = sc.nextLine();
-        System.out.println();
+    while (true) {
+        Scanner sc = new Scanner(System.in);
+            System.out.print("Enter Customer Name: ");
+            customerData[name][0] = sc.nextLine();
+            System.out.print("Enter Table number: ");
+            customerData[name][1] = sc.nextLine();
+            System.out.println();
+    
+            menuList();  
+            name++;
+    }
+}
+  
 
-        menuList();  
-        
-        
+public static void menuList(){
+    Scanner sc = new Scanner(System.in);
+    System.out.println("\n=== MENU KAFE ===");
+    for (int i = 0; i<menu.length; i++){
+        System.out.println((i+1) + ". " + menu[i] + " = " + prices[i]);
+    }
+            
     int totalPrice = 0;
     while (true) {
         System.out.print("Choose Menu (Enter menu number, or 0 to exit): ");
@@ -79,60 +86,7 @@ public static void addOrder(){
 
     name++;
     System.out.println();
-
-}
-  
-
-public static void menuList(){
-    Scanner sc = new Scanner(System.in);
-    System.out.println("\n=== MENU KAFE ===");
-    for (int i = 0; i<menu.length; i++){
-        System.out.println((i+1) + ". " + menu[i] + " = " + prices[i]);
-    }
-
-    System.out.print("\nChoose menu (enter menu number or 0 to exit) : ");
-    int menuNum = sc.nextInt();
-
-    switch (menuNum) {
-        case 1:
-            System.out.println("Enter the Number of Items " + menu[0]);
-            customerData[name][3] = sc.nextLine();
-            break;
-
-        case 2 :
-            System.out.println("Enter the Number of Items " + menu[1]);
-            customerData[name][4] = sc.nextLine();
-            break;
-
-        case 3 :
-        System.out.println("Enter the Number of Items " + menu[2]);
-        customerData[name][5] = sc.nextLine();
-
-        case 4 :
-        System.out.println("Enter the Number of Items " + menu[3]);
-        customerData[name][6] = sc.nextLine();
-        break;
-
-        default:
-            break;
-    }
-
-        int totalOrder = 0;
-        while (true) {
-            if (menuNum == 0) {
-                System.out.println("Yeay! Your order was successfully added");
-                for(int i = 0; i < customerData.length; i++){
-                    for (int j = 3; j <=6; j++){
-                        int order = Integer.parseInt(customerData[i][j]);
-                        totalOrder += order*prices[j];
-                    }
-                }
-                System.out.println("Total Order : " + totalOrder);
-                return;   
-                //coba
-            } 
+    
         }
     }
-}
-// tambahan
 
