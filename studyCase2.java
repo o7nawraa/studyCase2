@@ -32,7 +32,7 @@ public class studyCase2 {
                 return;
 
             default:
-                System.out.println("Invalid Choice. Re-input The Number : ");
+                System.out.print("Invalid Choice. Re-input The Number : ");
             }
         }
     }   
@@ -48,37 +48,43 @@ public static void addOrder(){
     
             menuList();  
             name++;
+            return;
     }
-}
-  
+} 
 
 public static void menuList(){
     Scanner sc = new Scanner(System.in);
-    System.out.println("\n=== MENU KAFE ===");
+    int totalPrice = 0;
+    int choice, quantity;
+    System.out.println("=== MENU KAFE ===");
     for (int i = 0; i<menu.length; i++){
         System.out.println((i+1) + ". " + menu[i] + " = " + prices[i]);
     }
-            
-    int totalPrice = 0;
     while (true) {
         System.out.print("Choose Menu (Enter menu number, or 0 to exit): ");
-        int choice = sc.nextInt();
-
-        if (choice == 0) {
-            break;  
-        }
-
-        if (choice < 1 || choice > 4) {
-            System.out.println("Invalid menu choice, please try again.");
-            continue;
-        }
-         
-        System.out.print("Enter the number of items for " + menu[choice - 1] + ": ");
-        int quantity = sc.nextInt();
-        totalPrice += prices[choice - 1] * quantity;
-
-        customerData[name][choice] = String.valueOf(quantity);
+        choice = sc.nextInt();
         
+            if (choice < 0 || choice>=4) {
+                System.out.println("Invalid Number of Menu."); 
+                System.out.println();
+                continue; 
+            }
+
+            if (choice == 0) {
+                break;
+            }
+
+        while (true) {
+            System.out.print("Enter the number of items for " + menu[choice - 1] + ": ");
+            quantity = sc.nextInt();
+            if (quantity<=0) {
+                System.out.println("invalid menu choice, please try again");
+                continue;
+            }
+            customerData[name][choice] = String.valueOf(quantity);
+            break;
+        }
+        totalPrice += prices[choice - 1] * quantity;
     }
 
     System.out.println("Order successfully added.");
