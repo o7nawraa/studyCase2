@@ -48,6 +48,7 @@ public static void addOrder(){
 
         menuList();  
         name++;
+        return;
     }
    
     
