@@ -61,6 +61,7 @@ public static void addOrder(){
 public static void menuList(){
     Scanner sc = new Scanner(System.in);
     System.out.println("\n=== MENU CAFE ===");
+    int choice, quantity;
     for (int i = 0; i<menu.length; i++){
         System.out.println((i+1) + ". " + menu[i] + " = " + prices[i]);
     }
@@ -69,7 +70,7 @@ public static void menuList(){
     int totalPrice = 0;
     while (true) {
     System.out.print("Choose Menu (Enter menu number, or 0 to exit): ");
-    int choice = sc.nextInt();
+    choice = sc.nextInt();
     
     if (choice == 0) {
         break;  
@@ -81,7 +82,7 @@ public static void menuList(){
     }
      
     System.out.print("Enter the number of items for " + menu[choice - 1] + ": ");
-    int quantity = sc.nextInt();
+    quantity = sc.nextInt();
     totalPrice += prices[choice - 1] * quantity;
     
     customerData[name][choice] = String.valueOf(quantity);
