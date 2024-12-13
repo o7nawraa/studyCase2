@@ -9,7 +9,7 @@ public class studyCase2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-
+<<<<<<<<< Temporary merge branch 1
         while (true) {
         System.out.println("===Main Menu===");
         System.out.println("1. Add Order");
@@ -38,12 +38,13 @@ public class studyCase2 {
         }
     }   
 
-
-
 public static void addOrder(){
     Scanner sc = new Scanner(System.in);
-
+<<<<<<<<< Temporary merge branch 1
+        System.out.print("Enter Cutomer Name: ");
+=========
         System.out.print("\nEnter Cutomer Name: ");
+>>>>>>>>> Temporary merge branch 2
         customerData[name][0] = sc.nextLine();
         System.out.print("Enter Table number: ");
         customerData[name][1] = sc.nextLine();
@@ -66,7 +67,7 @@ public static void addOrder(){
             continue;
         }
          
-        System.out.print("Masukkan jumlah item untuk " + menu[choice - 1] + ": ");
+        System.out.print("Enter the number of items for " + menu[choice - 1] + ": ");
         int quantity = sc.nextInt();
         totalPrice += prices[choice - 1] * quantity;
 
@@ -84,13 +85,92 @@ public static void addOrder(){
   
 
 public static void menuList(){
-    System.out.println("===Menu Cafe===");
-    System.out.println("1. Black Coffee - Rp 15.000");
-    System.out.println("2. Latte        - Rp 15.000");
-    System.out.println("3. Teh Tarik    - Rp 15.000");
-    System.out.println("4. Fried Noodle - Rp 15.000");
-    System.out.println();
+    Scanner sc = new Scanner(System.in);
+    System.out.println("\n=== MENU KAFE ===");
+    for (int i = 0; i<menu.length; i++){
+        System.out.println((i+1) + ". " + menu[i] + " = " + prices[i]);
+    }
+
+    System.out.print("\nChoose menu (enter menu number or 0 to exit) : ");
+    int menuNum = sc.nextInt();
+<<<<<<<<< Temporary merge branch 1
+
+    switch (menuNum) {
+        case 1:
+            System.out.println("Enter the Number of Items " + menu[0]);
+            customerData[name][3] = sc.nextLine();
+            break;
+
+        case 2 :
+            System.out.println("Enter the Number of Items " + menu[1]);
+            customerData[name][4] = sc.nextLine();
+            break;
+
+        case 3 :
+        System.out.println("Enter the Number of Items " + menu[2]);
+        customerData[name][5] = sc.nextLine();
+        
+        case 4 :
+        System.out.println("Enter the Number of Items " + menu[3]);
+        customerData[name][6] = sc.nextLine();
+        break;
+
+        default:
+            break;
+    }
+
+    if (menuNum == 0) {
+        System.out.println("YeAy! Your order was successfully added");
+        int totalOrder = 0;
+        for(int i = 0; i < customerData.length; i++){
+            for (int j = 3; j <=6; j++){
+                int order = Integer.parseInt(customerData[i][j]);
+                totalOrder += order*prices[j];
+            }
+=========
+    while (true) {
+        switch (menuNum) {
+            case 1:
+                System.out.print("Enter the Number of Items " + menu[0]);
+                customerData[name][3] = String.valueOf(sc.nextInt());
+                break;
+    
+            case 2 :
+                System.out.print("Enter the Number of Items " + menu[1]);
+                customerData[name][4] = String.valueOf(sc.nextInt());
+                break;
+    
+            case 3 :
+                System.out.print("Enter the Number of Items " + menu[2]);
+                customerData[name][5] = String.valueOf(sc.nextInt());
+    
+            case 4 :
+                System.out.print("Enter the Number of Items " + menu[3]);
+                customerData[name][6] = sc.nextLine();
+                break;
+    
+            default:
+                break;
+>>>>>>>>> Temporary merge branch 2
+        }
+
+        int totalOrder = 0;
+        while (true) {
+            if (menuNum == 0) {
+                System.out.println("Yeay! Your order was successfully added");
+                for(int i = 0; i < customerData.length; i++){
+                    for (int j = 3; j <=6; j++){
+                        int order = Integer.parseInt(customerData[i][j]);
+                        totalOrder += order*prices[j];
+                    }
+                }
+                System.out.println("Total Order : " + totalOrder);
+                return;   
+                //coba
+            } 
+        }
     }
 }
-
+}
+// tambahan
 
