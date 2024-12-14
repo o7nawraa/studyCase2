@@ -51,7 +51,7 @@ public static void addOrder(){
 public static void menuList(){
     Scanner sc = new Scanner(System.in);
     int totalPrice = 0;
-    int choice, quantity;
+    int choice, quantity, existingQuantity;
 
     System.out.println("=== MENU KAFE ===");
     for (int i = 0; i<menu.length; i++){
@@ -84,7 +84,7 @@ public static void menuList(){
             if(customerData[name][choice+1] == null){
                 customerData[name][choice+1] = String.valueOf(quantity); 
             } else {
-                int existingQuantity = Integer.parseInt(customerData[name][choice+1]);
+                existingQuantity = Integer.parseInt(customerData[name][choice+1]);
                 customerData[name][choice+1] = String.valueOf(existingQuantity + quantity);
             }
             totalPrice += prices[choice - 1] * quantity;
