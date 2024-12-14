@@ -32,7 +32,6 @@ public class studyCase2 {
                 System.out.print("Invalid Choice. Re-input The Number : ");
             }
         }
-    }   
 
 public static void addOrder(){
         Scanner sc = new Scanner(System.in);
