@@ -9,13 +9,14 @@ public class studyCase2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("===MAIN MENU===");
-        System.out.println("1. Add Order");
-        System.out.println("2. Display Order");
-        System.out.println("3. Exit");
-        System.out.print("Choose Menu = ");
-        int choice = sc.nextInt();
-        System.out.println();
+        while (true) {
+            System.out.println("===MAIN MENU===");
+            System.out.println("1. Add Order");
+            System.out.println("2. Display Order");
+            System.out.println("3. Exit");
+            System.out.print("Choose Menu = ");
+            int choice = sc.nextInt();
+            System.out.println();
 
         switch (choice) {
             case 1:
@@ -32,6 +33,7 @@ public class studyCase2 {
                 System.out.print("Invalid Choice. Re-input The Number : ");
             }
         }
+    }   
 
 public static void addOrder(){
         Scanner sc = new Scanner(System.in);
@@ -87,10 +89,9 @@ public static void menuList(){
             totalPrice += prices[choice - 1] * quantity;
             break;
         }
-        System.out.println();
+        totalPrice += prices[choice - 1] * quantity;
     }
-
-    System.out.println("Order successfully added.");
+    System.out.println("Order succesfully Added");
     System.out.println("Total Prices: Rp " + totalPrice);
     System.out.println();
 }
@@ -133,3 +134,4 @@ public static void displayOrder(){
         }
     }
 }
+
