@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class studyCase2 {
+public class modif2 {
 
     static String[][] customerData = new String[100][5];
     static String[] menu = {"Black Coffee", "Latte", "Teh Tarik", "Noodle"};

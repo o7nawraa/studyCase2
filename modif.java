@@ -1,12 +1,12 @@
-import java.util.Scanner;
-public class studyCase2 {
 
-    static String[][] customerData = new String[100][5];
+
+import java.util.Scanner;
+
+public class modif {
+    static ArrayList<String[]> customerData = new ArrayList<>();
     static String[] menu = {"Black Coffee", "Latte", "Teh Tarik", "Noodle"};
     static int[] prices = {15000, 22000, 12000, 18000};
-    static int name = 0;
-    
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -49,7 +49,6 @@ public class studyCase2 {
     public static void menuList(String customerName, String tableNumber) {
         Scanner sc = new Scanner(System.in);
         int choice, quantity;
-        int totalPrice = 0;
 
         System.out.println("=== MENU KAFE ===");
         for (int i = 0; i < menu.length; i++) {
@@ -76,62 +75,31 @@ public class studyCase2 {
                 System.out.println("Invalid quantity. Please try again!");
                 continue;
             }
-            
-            customerData[name][0] = customerName;
-            customerData[name][1] = tableNumber;
-            customerData[name][2] = menu[choice - 1];
-            customerData[name][3] = String.valueOf(quantity);
-            customerData[name][4] = String.valueOf(prices[choice - 1]);
-            
-            name++;
-            totalPrice += prices[choice-1] * quantity;
+
+            String[] order = {customerName, tableNumber, menu[choice - 1], String.valueOf(quantity), String.valueOf(prices[choice - 1])};
+            customerData.add(order);
         }
-        
+
         System.out.println("Order successfully added.");
-        System.out.println("Total prices: Rp " + totalPrice);
         System.out.println();
     }
 
     public static void displayOrder() {
-        System.out.println("\n=== LIST ORDER ===");
-        boolean[] displayed = new boolean[name];
-        
-        if (name == 0) {
+        if (customerData.isEmpty()) {
             System.out.println("There is no order.");
             System.out.println();
             return;
         }
 
-        
-        for (int i = 0; i < name; i++) {
-            if (displayed[i]) {
-                continue;
-            }
-            String customerName = customerData[i][0];
-            System.out.println("Customer Name: " + customerName);
-            System.out.println("Table Number: " + customerData[i][1]);
-            System.out.println("Detail Order: ");
-
-            int TotalPrice = 0;
-
-            for (int j = i; j < name; j++) {
-                if (customerData[j][0].equals(customerName)) {
-                    int quantity = Integer.parseInt(customerData[j][3]);
-                    int price = Integer.parseInt(customerData[j][4]);
-
-                    int itemTotal = quantity * price;
-
-                    System.out.println(" - " + customerData[j][2] + " X " + quantity + " = Rp " + itemTotal);
-                    TotalPrice += itemTotal;
-                    displayed[j] = true;
-                    
-
-                }
-            }
-            System.out.println("Total Order Price: Rp " + TotalPrice);
+        System.out.println("\n=== LIST ORDER ===");
+        for (String[] order : customerData) {
+            System.out.println("Customer Name: " + order[0]);
+            System.out.println("Table Number: " + order[1]);
+            System.out.println("Order: " + order[2] + " x " + order[3] + " = Rp " + (Integer.parseInt(order[3]) * Integer.parseInt(order[4])));
             System.out.println("-----------------------------");
-
         }
     }
 }
+
+    
 
