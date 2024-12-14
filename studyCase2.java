@@ -1,23 +1,22 @@
 import java.util.Scanner;
 public class studyCase2 {
 
-    static String[][] customerData = new String[100][7];
-    static String[] menu = {"Black Coffee", "Latte", "Teh Tarik", "Noodle"};
-    static int[] prices = {15000, 22000, 12000, 18000};
+    static String[][] customerData = new String[100][6];
+    static String[] menu = { "Black Coffee", "Latte ", "Teh Tarik ", "Noodle "};
+    static int [] prices = {15000, 22000, 12000, 18000};
     static int name;
-    
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-            System.out.println("===MAIN MENU===");
-            System.out.println("1. Add Order");
-            System.out.println("2. Display Order");
-            System.out.println("3. Exit");
-            System.out.print("Choose Menu = ");
-            int choice = sc.nextInt();
-            System.out.println();
+        System.out.println("===MAIN MENU===");
+        System.out.println("1. Add Order");
+        System.out.println("2. Display Order");
+        System.out.println("3. Exit");
+        System.out.print("Choose Menu = ");
+        int choice = sc.nextInt();
+        System.out.println();
 
         switch (choice) {
             case 1:
@@ -31,10 +30,10 @@ public class studyCase2 {
                 return;
 
             default:
-                System.out.print("Invalid Choice. Re-input The Number : ");
+                System.out.println("Invalid Choice. Re-input The Number : ");
             }
         }
-    }   
+    }
 
 public static void addOrder(){
         Scanner sc = new Scanner(System.in);
@@ -68,9 +67,9 @@ public static void menuList(){
                 continue; 
             }
 
-            if (choice == 0) {
-                break;
-            }
+        if (choice == 0) {
+            break;  
+        }
 
         while (true) {
             System.out.print("Enter the number of items for " + menu[choice - 1] + ": ");
@@ -90,8 +89,7 @@ public static void menuList(){
             totalPrice += prices[choice - 1] * quantity;
             break;
         }
-     
-      System.out.println();
+        System.out.println();
     }
     System.out.println("Order succesfully Added");
     System.out.println("Total Prices: Rp " + totalPrice);
@@ -106,6 +104,7 @@ public static void menuList(){
             return;
         }
 
+    System.out.println("\n===LIST ORDER===");
     for(int i = 0; i < name; i++) {
         if(customerData[i][0] == null) {
             break;
@@ -136,4 +135,5 @@ public static void menuList(){
     }
 }
 
-//
+
+
