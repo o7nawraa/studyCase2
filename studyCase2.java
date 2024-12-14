@@ -93,6 +93,9 @@ public static void menuList(){
      
       System.out.println();
     }
+    System.out.println("Order succesfully Added");
+    System.out.println("Total Prices: Rp " + totalPrice);
+    System.out.println();
 }
 
     public static void displayOrder() {
@@ -103,7 +106,6 @@ public static void menuList(){
             return;
         }
 
-    System.out.println("\n===LIST ORDER===");
     for(int i = 0; i < name; i++) {
         if(customerData[i][0] == null) {
             break;
