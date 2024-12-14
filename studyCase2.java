@@ -9,6 +9,7 @@ public class studyCase2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        while (true) {
         System.out.println("===MAIN MENU===");
         System.out.println("1. Add Order");
         System.out.println("2. Display Order");
@@ -32,8 +33,7 @@ public class studyCase2 {
                 System.out.println("Invalid Choice. Re-input The Number : ");
             }
         }
-       
-
+    }
 
 public static void addOrder(){
         Scanner sc = new Scanner(System.in);
