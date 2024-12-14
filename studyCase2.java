@@ -2,21 +2,22 @@ import java.util.Scanner;
 public class studyCase2 {
 
     static String[][] customerData = new String[100][7];
-    static String[] menu = { "Black Coffe", "Latte ", "Teh Tarik ", "Noodle "};
-    static int [] prices = {15000, 22000, 12000, 18000};
+    static String[] menu = {"Black Coffee", "Latte", "Teh Tarik", "Noodle"};
+    static int[] prices = {15000, 22000, 12000, 18000};
     static int name;
+    
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
-        System.out.println("===MAIN MENU===");
-        System.out.println("1. Add Order");
-        System.out.println("2. Display Order");
-        System.out.println("3. Exit");
-        System.out.print("Choose Menu = ");
-        int choice = sc.nextInt();
-        System.out.println();
+            System.out.println("===MAIN MENU===");
+            System.out.println("1. Add Order");
+            System.out.println("2. Display Order");
+            System.out.println("3. Exit");
+            System.out.print("Choose Menu = ");
+            int choice = sc.nextInt();
+            System.out.println();
 
         switch (choice) {
             case 1:
@@ -89,21 +90,18 @@ public static void menuList(){
             totalPrice += prices[choice - 1] * quantity;
             break;
         }
-        System.out.println();
+     
+      System.out.println();
     }
-
-    System.out.println("Order successfully added.");
-    System.out.println("Total Prices: Rp " + totalPrice);
-    System.out.println();
 }
-    
 
-public static void displayOrder(){
-    if(customerData[0][0] == null){
-        System.out.println("There is No Order.");
-        System.out.println();
-        return;
-    }
+    public static void displayOrder() {
+        System.out.println("\n=== LIST ORDER ===");
+        if (name == 0) {
+            System.out.println("There is no order.");
+            System.out.println();
+            return;
+        }
 
     System.out.println("\n===LIST ORDER===");
     for(int i = 0; i < name; i++) {
