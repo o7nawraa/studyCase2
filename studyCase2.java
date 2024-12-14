@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class studyCase2 {
 
-    static String[][] customerData = new String[100][7];
+    static String[][] customerData = new String[100][6];
     static String[] menu = { "Black Coffee", "Latte ", "Teh Tarik ", "Noodle "};
     static int [] prices = {15000, 22000, 12000, 18000};
     static int name;
