@@ -94,15 +94,15 @@ public static void menuList(){
     System.out.println("Order succesfully Added");
     System.out.println("Total Prices: Rp " + totalPrice);
     System.out.println();
-}
-    
-
-public static void displayOrder(){
-    if(customerData[0][0] == null){
-        System.out.println("There is No Order.");
-        System.out.println();
-        return;
     }
+
+    public static void displayOrder() {
+        System.out.println("\n=== LIST ORDER ===");
+        if (name == 0) {
+            System.out.println("There is no order.");
+            System.out.println();
+            return;
+        }
 
     System.out.println("\n===LIST ORDER===");
     for(int i = 0; i < name; i++) {
@@ -134,3 +134,6 @@ public static void displayOrder(){
         }
     }
 }
+
+
+
