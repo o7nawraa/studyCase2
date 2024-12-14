@@ -1,7 +1,8 @@
 import java.util.Scanner;
 public class studyCase2 {
 
-    static String[][] customerData = new String[100][5];
+
+    static String[][] customerData = new String[5[6];
     static String[] menu = {"Black Coffee", "Latte", "Teh Tarik", "Noodle"};
     static int[] prices = {15000, 22000, 12000, 18000};
     static int name = 0;
@@ -11,6 +12,7 @@ public class studyCase2 {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
+
             System.out.println("===MAIN MENU===");
             System.out.println("1. Add Order");
             System.out.println("2. Display Order");
@@ -18,6 +20,7 @@ public class studyCase2 {
             System.out.print("Choose Menu = ");
             int choice = sc.nextInt();
             System.out.println();
+
 
             switch (choice) {
                 case 1:
@@ -92,6 +95,7 @@ public class studyCase2 {
         System.out.println();
     }
 
+
     public static void displayOrder() {
         System.out.println("\n=== LIST ORDER ===");
         boolean[] displayed = new boolean[name];
@@ -100,6 +104,8 @@ public class studyCase2 {
             System.out.println("There is no order.");
             System.out.println();
             return;
+
+
         }
 
         
