@@ -1,34 +1,33 @@
 import java.util.Scanner;
 public class studyCase2 {
-    static Scanner sc = new Scanner(System.in);
-    static String[][] customerData = new String[5][6];
-    static String[] menu = { "Black Coffee", "Latte", "Teh Tarik", " Fried Noddle"};
+
+    static String[][] customerData = new String[100][7];
+    static String[] menu = {"Black Coffee", "Latte", "Teh Tarik", "Noodle"};
     static int[] prices = {15000, 22000, 12000, 18000};
     static int name;
-  
+    
+    
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
 
         while (true) {
-        System.out.println("===Main Menu===");
-        System.out.println("1. Add Order");
-        System.out.println("2. Display Order");
-        System.out.println("3. Exit");
-        System.out.print("Choose Menu: ");
-        int choice = sc.nextInt();
-        System.out.println();
+            System.out.println("===MAIN MENU===");
+            System.out.println("1. Add Order");
+            System.out.println("2. Display Order");
+            System.out.println("3. Exit");
+            System.out.print("Choose Menu = ");
+            int choice = sc.nextInt();
+            System.out.println();
 
         switch (choice) {
             case 1:
                 addOrder();
                 break;
-            
-            // case 2:
-            //     displayOrder();
-            //     break;
-            
+            case 2:
+                displayOrder();
+                break;
             case 3:
-                System.out.println("Have Nice Day!");
+                System.out.println("Exiting Program. Have Nice Day!");
                 return;
 
             default:
@@ -38,9 +37,7 @@ public class studyCase2 {
     }   
 
 public static void addOrder(){
-    
-    while (true) {
-        
+        Scanner sc = new Scanner(System.in);
             System.out.print("Enter Customer Name: ");
             customerData[name][0] = sc.nextLine();
             System.out.print("Enter Table number: ");
@@ -49,45 +46,96 @@ public static void addOrder(){
     
             menuList();  
             name++;
-    }
-}
-  
+} 
 
 public static void menuList(){
-    
-    System.out.println("\n=== MENU KAFE ===");
-    for (int i = 0; i<menu.length; i++){
-        System.out.println((i+1) + ". " + menu[i] + " = " + prices[i]);
-    }
-            
+    Scanner sc = new Scanner(System.in);
     int totalPrice = 0;
+    int choice, quantity;
+
+    System.out.println("=== MENU KAFE ===");
+    for (int i = 0; i<menu.length; i++){
+        System.out.println((i+1) + ". " + menu[i] + " - " + prices[i]);
+    }
+
     while (true) {
         System.out.print("Choose Menu (Enter menu number, or 0 to exit): ");
-        int choice = sc.nextInt();
+        choice = sc.nextInt();
+        
+            if (choice < 0 || choice > 4) {
+                System.out.println("Invalid Number of Menu."); 
+                System.out.println();
+                continue; 
+            }
 
         if (choice == 0) {
             break;  
         }
 
-        if (choice < 1 || choice > 4) {
-            System.out.println("Invalid menu choice, please try again.");
-            continue;
-        }
-         
-        System.out.print("Enter the number of items for " + menu[choice - 1] + ": ");
-        int quantity = sc.nextInt();
-        totalPrice += prices[choice - 1] * quantity;
+        while (true) {
+            System.out.print("Enter the number of items for " + menu[choice - 1] + ": ");
+            quantity = sc.nextInt();
 
-        customerData[name][choice] = String.valueOf(quantity);
-        
-    }
-    
-    System.out.println("Order successfully added.");
-    System.out.println("Total Prices: Rp: " + totalPrice);
-    
-    System.out.println();
-   
-            } 
+            if (quantity<0) {
+                System.out.println("invalid menu choice, please try again");
+                continue;
+            }
+            
+            if(customerData[name][choice+1] == null){
+                customerData[name][choice+1] = String.valueOf(quantity); 
+            } else {
+                int existingQuantity = Integer.parseInt(customerData[name][choice+1]);
+                customerData[name][choice+1] = String.valueOf(existingQuantity + quantity);
+            }
+            totalPrice += prices[choice - 1] * quantity;
+            break;
         }
+     
+      System.out.println();
+    }
+    System.out.println("Order succesfully Added");
+    System.out.println("Total Prices: Rp " + totalPrice);
+    System.out.println();
+}
+
+    public static void displayOrder() {
+        System.out.println("\n=== LIST ORDER ===");
+        if (name == 0) {
+            System.out.println("There is no order.");
+            System.out.println();
+            return;
+        }
+
+    for(int i = 0; i < name; i++) {
+        if(customerData[i][0] == null) {
+            break;
+        }
+
+        System.out.println("Customer Name: " + customerData[i][0]);
+        System.out.println("Table Number: " + customerData[i][1]);
+
+        System.out.println("Order Detail: ");
+        int totalPrice = 0;
+
+        for (int j = 2; j < 6; j++) {
+            if(customerData[i][j] == null) {
+                continue;
+            } else {
+                int quantity = Integer.parseInt(customerData[i][j]);
+                int price = prices[j - 2] * quantity;
+                totalPrice += price;
+                    
+                System.out.println(" - " + menu[j-2] + " X " + quantity + " = " + price);
+            }
+            } 
+            System.out.println("Total Order Price: " + totalPrice);
+            System.out.println("-----------------------------");
+            System.out.println();
+
+        }
+    }
+}
+
+
 
 
